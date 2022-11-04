@@ -18,7 +18,7 @@ class Campo {
 
   void adicionarVizinho(Campo vizinho) {
     final deltaLinha = (linha - vizinho.linha).abs();
-    final deltaColuna = (coluna - vizinho.linha).abs();
+    final deltaColuna = (coluna - vizinho.coluna).abs();
 
     if (deltaLinha == 0 && deltaColuna == 0) {
       return;
@@ -34,8 +34,9 @@ class Campo {
       return;
     }
 
+    _aberto = true;
+
     if (_minado) {
-      _aberto = true;
       _explodido = true;
       throw ExplosaoException();
     }
